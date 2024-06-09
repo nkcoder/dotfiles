@@ -1,0 +1,27 @@
+[user]
+    name = daniel.guo
+    email = daniel.guo@mydomain.com
+
+[alias]
+    co = checkout
+
+    # show all branches
+    br = branch --all
+
+    ci = commit
+
+    # View the current working tree status using the short format
+    st = status -s
+
+    # Pull with rebase
+    pr = pull -r
+
+    # View abbreviated SHA, description, and history graph of the latest 30 commits
+    l = log --pretty=oneline -n 30 --graph --abbrev-commit
+
+    # List contributors with number of commits
+    contributors = shortlog --summary --numbered
+
+[color]
+    # Use colors in Git commands for colored output
+    ui = auto
