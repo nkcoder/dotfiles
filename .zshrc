@@ -109,7 +109,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home
-export PATH=/opt/homebrew/bin:/Users/ling/.npm-global/bin:/Users/ling/Library/Python/3.9/bin:$PATH
+export PATH=/opt/homebrew/bin:/Users/ling/.npm-global/bin:$PATH
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -125,23 +125,50 @@ export PATH="$PATH:/Users/ling/Library/Application Support/Coursier/bin"
 # need for local dev (run module)
 export PYTHONPATH="${PYTHONPATH}:/Users/ling/projects/scripts/aws-helper"
 
-changeAwsDefaultProfileToDev() {
-    export AWS_PROFILE="viva_dev"
-    echo "AWS default profile changed to 'viva_dev'"
+changeAwsProfileToDev() {
+    export AWS_PROFILE="dev"
+    echo "AWS default profile changed to 'dev'"
 }
 
-changeAwsDefaultProfileToProd() {
-    export AWS_PROFILE="viva_prod"
-    echo "AWS default profile changed to 'viva_prod'"
-}
-
-changeAwsDefaultProfileToDefault() {
-    export AWS_PROFILE="default"
-    echo "AWS default profile changed to 'default'"
+changeAwsProfileToProd() {
+    export AWS_PROFILE="prod"
+    echo "AWS default profile changed to 'prod'"
 }
 
 
+changeAwsProfileToDaniel() {
+    export AWS_PROFILE="daniel1"
+    echo "AWS default profile changed to 'daniel'"
+}
 
+# >>> scala-cli completions >>>
+fpath=("/Users/ling/Library/Application Support/ScalaCli/completions/zsh" $fpath)
+# Make sure compinit is called after instant prompt and only once
+# <<< scala-cli completions <<<
 
+# Add Homebrew completions path if it exists
+if [ -d /opt/homebrew/share/zsh/site-functions ]; then
+    # Remove the broken _brew_services symlink if it exists
+    if [ -L /opt/homebrew/share/zsh/site-functions/_brew_services ] && [ ! -e /opt/homebrew/share/zsh/site-functions/_brew_services ]; then
+        rm -f /opt/homebrew/share/zsh/site-functions/_brew_services
+    fi
+    fpath=(/opt/homebrew/share/zsh/site-functions $fpath)
+fi
+
+# Initialize completions only once after everything is set
 autoload -U +X bashcompinit && bashcompinit
+autoload -Uz compinit
+
+# Run compinit with -i flag to ignore insecure files/directories
+compinit -i
+
+# Terraform completion
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+tf() {
+    terraform "$@"
+}
+
+alias pm="pulumi"
+alias kc="kubectl"
+alias mk="minikube"

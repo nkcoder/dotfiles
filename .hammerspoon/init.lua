@@ -5,28 +5,42 @@ function bindKey(modifiers, key, appName)
   end)
 end
 
--- Bind Option + T to open Terminal
-bindKey({"alt"}, "t", "iTerm")
+-- bind on letter keys
+bindKey({"alt"}, "t", "/Users/ling/Applications/iTerm.app")
 
 -- Bind Option + C to open Google Chrome
 bindKey({"alt"}, "c", "Google Chrome")
 
 -- Bind Option + V to open Visual Studio Code
-bindKey({"alt"}, "v", "Visual Studio Code")
+bindKey({"alt"}, "v", "/Users/ling/Applications/Visual Studio Code.app")
 
-bindKey({"alt"}, "s", "Slack")
+bindKey({"alt"}, "s", "/Users/ling/Applications/Slack.app")
 
-bindKey({"alt"}, "e", "Finder")
+bindKey({"alt"}, "e", "/Users/ling/Applications/Cursor.app")
 
 bindKey({"alt"}, "f", "Firefox")
 
-bindKey({"alt"}, "i", "IntelliJ IDEA")
+bindKey({"alt"}, "r", "Safari")
 
-bindKey({"alt"}, "n", "Notion")
+bindKey({"alt"}, "i", "/Users/ling/Applications/IntelliJ IDEA.app")
 
-bindKey({"alt"}, "b", "Safari")
+bindKey({"alt"}, "p", "Passwords")
 
-bindKey({"alt"}, "p", "Postman")
+bindKey({"alt"}, "a", "Finder")
+
+bindKey({"alt"}, "o", "/Applications/Microsoft Outlook.app")
+
+bindKey({"alt"}, "n", "/Users/ling/Applications/Notion.app")
+
+bindKey({"alt"}, "g", "/Users/ling/Applications/GoLand.app")
+
+bindKey({"alt"}, "w", "/Users/ling/Applications/Warp.app")
+
+bindKey({"alt"}, "z", "/Users/ling/Applications/Zed.app")
+
+--- bind on number keys
+bindKey({"alt"}, "1", "/Users/ling/Applications/ChatGPT.app")
+bindKey({"alt"}, "2", "/Users/ling/Applications/Claude.app")
 
 -- reload config
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function()
