@@ -1,0 +1,306 @@
+# Alacritty Configuration File (TOML format)
+# Place this file at:
+# - macOS: ~/.config/alacritty/alacritty.toml
+# - Linux: ~/.config/alacritty/alacritty.toml
+# - Windows: %APPDATA%\alacritty\alacritty.toml
+
+# Live config reload (changes require restart)
+[general]
+live_config_reload = true
+
+# Shell
+[terminal.shell]
+program = "/bin/zsh"
+args = ["--login"]
+
+# Window configuration
+[window]
+# Window dimensions (changes require restart)
+dimensions = { columns = 120, lines = 30 }
+
+# Window padding (changes require restart)
+padding = { x = 8, y = 8 }
+
+# Spread additional padding evenly around the terminal content
+dynamic_padding = true
+
+# Window decorations
+decorations = "Full"
+
+# Startup Mode (changes require restart)
+startup_mode = "Windowed"
+
+# Window title
+title = "Alacritty"
+
+# Window class (Linux/BSD only)
+class = { instance = "Alacritty", general = "Alacritty" }
+
+# Scrolling
+[scrolling]
+# Maximum number of lines in the scrollback buffer
+history = 10000
+
+# Scrolling distance multiplier
+multiplier = 3
+
+# Font configuration
+[font]
+# Point size
+size = 14.0
+
+# Offset is the extra space around each character
+offset = { x = 0, y = 0 }
+
+# Glyph offset determines the locations of the glyphs within their cells
+glyph_offset = { x = 0, y = 0 }
+
+# Normal (roman) font face
+[font.normal]
+family = "MesloLGS NF"
+style = "Regular"
+
+# Bold font face
+[font.bold]
+family = "MesloLGS NF"
+style = "Bold"
+
+# Italic font face
+[font.italic]
+family = "MesloLGS NF"
+style = "Italic"
+
+# Bold italic font face
+[font.bold_italic]
+family = "MesloLGS NF"
+style = "Bold Italic"
+
+# Bold text rendering is now handled automatically by Alacritty
+
+# Color schemes
+[colors]
+# Default colors
+[colors.primary]
+background = "#1e1e1e"
+foreground = "#d4d4d4"
+
+# Cursor colors
+[colors.cursor]
+text = "#1e1e1e"
+cursor = "#d4d4d4"
+
+# Vi mode cursor colors
+[colors.vi_mode_cursor]
+text = "#1e1e1e"
+cursor = "#d4d4d4"
+
+# Selection colors
+[colors.selection]
+text = "CellForeground"
+background = "#264f78"
+
+# Search colors
+[colors.search.matches]
+foreground = "#1e1e1e"
+background = "#e6cc77"
+
+[colors.search.focused_match]
+foreground = "#1e1e1e"
+background = "#f29718"
+
+# Normal colors
+[colors.normal]
+black = "#1e1e1e"
+red = "#f44747"
+green = "#608b4e"
+yellow = "#dcdcaa"
+blue = "#569cd6"
+magenta = "#c586c0"
+cyan = "#4ec9b0"
+white = "#d4d4d4"
+
+# Bright colors
+[colors.bright]
+black = "#808080"
+red = "#f44747"
+green = "#608b4e"
+yellow = "#dcdcaa"
+blue = "#569cd6"
+magenta = "#c586c0"
+cyan = "#4ec9b0"
+white = "#d4d4d4"
+
+# Bell
+[bell]
+animation = "EaseOutExpo"
+duration = 0
+color = "#ffffff"
+
+# Selection
+[selection]
+# This string contains all characters that are used as separators for "semantic words"
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+# When set to `true`, selected text will be copied to the primary clipboard.
+save_to_clipboard = true
+
+# Cursor
+[cursor]
+# Cursor blinking interval in milliseconds.
+blink_interval = 750
+
+# If this is `true`, the cursor will be rendered as a hollow box when the window is not focused.
+unfocused_hollow = true
+
+# Thickness of the cursor relative to the cell width as floating point number from `0.0` to `1.0`.
+thickness = 0.15
+
+# Cursor style
+[cursor.style]
+# Cursor shape
+shape = "Beam"
+
+# Cursor blinking state
+blinking = "On"
+
+# Vi mode cursor style (remove this line as it's not needed)
+
+# Mouse
+[mouse]
+# If this is `true`, the cursor is temporarily hidden when typing.
+hide_when_typing = false
+
+# Key bindings
+[[keyboard.bindings]]
+key = "V"
+mods = "Command"
+action = "Paste"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Command"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Command|Shift"
+action = "ClearSelection"
+
+# Search
+[[keyboard.bindings]]
+key = "F"
+mods = "Command"
+action = "SearchForward"
+
+[[keyboard.bindings]]
+key = "B"
+mods = "Command"
+action = "SearchBackward"
+
+# Font size
+[[keyboard.bindings]]
+key = "Plus"
+mods = "Command"
+action = "IncreaseFontSize"
+
+[[keyboard.bindings]]
+key = "Minus"
+mods = "Command"
+action = "DecreaseFontSize"
+
+[[keyboard.bindings]]
+key = "Key0"
+mods = "Command"
+action = "ResetFontSize"
+
+# Window management
+[[keyboard.bindings]]
+key = "Q"
+mods = "Command"
+action = "Quit"
+
+# delete from cursor to the beginning of the line
+[[keyboard.bindings]]
+key = "Back"
+mods = "Command"
+chars = "\u0015"
+
+# delete from cursor to the beginning of the line
+[[keyboard.bindings]]
+key = "Back"
+mods = "Alt"
+chars = "\u0017"
+
+# delete word
+[[keyboard.bindings]]
+key = "W"
+mods = "Command"
+action = "Quit"
+
+[[keyboard.bindings]]
+key = "N"
+mods = "Command"
+action = "SpawnNewInstance"
+
+# Scrolling
+[[keyboard.bindings]]
+key = "PageUp"
+mods = "Shift"
+action = "ScrollPageUp"
+
+[[keyboard.bindings]]
+key = "PageDown"
+mods = "Shift"
+action = "ScrollPageDown"
+
+[[keyboard.bindings]]
+key = "Home"
+mods = "Shift"
+action = "ScrollToTop"
+
+[[keyboard.bindings]]
+key = "End"
+mods = "Shift"
+action = "ScrollToBottom"
+
+# Vi mode
+[[keyboard.bindings]]
+key = "Space"
+mods = "Shift|Control"
+action = "ToggleViMode"
+
+# word navigation: option + arrow keys
+[[keyboard.bindings]]
+key = "Left"
+mods = "alt"
+chars = "\u001bb"
+
+[[keyboard.bindings]]
+key = "Right"
+mods = "alt"
+chars = "\u001bf"
+
+# line navigation: command + arrow keys
+[[keyboard.bindings]]
+key = "Left"
+mods = "Command"
+chars = "\u001bOH"
+
+[[keyboard.bindings]]
+key = "Right"
+mods = "Command"
+chars = "\u001bOF"
+
+# Debug
+[debug]
+# Display the time it takes to redraw each frame.
+render_timer = false
+
+# Keep the log file after quitting Alacritty.
+persistent_logging = false
+
+# Log level
+log_level = "Warn"
+
+# Print all received window events.
+print_events = false
