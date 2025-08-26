@@ -1,0 +1,3 @@
+{
+  "apiKeyHelper": "source ~/.zshrc && echo $ANTHROPIC_API_KEY"
+}
