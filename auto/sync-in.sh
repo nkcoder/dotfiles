@@ -30,4 +30,7 @@ rsync -a --delete "$source_dir/.vimrc" "$dest_dir/.vimrc"
 # claude settings
 rsync -a --delete "$source_dir/.claude/settings.json" "$dest_dir/.claude/settings.json"
 
+# hammerspoon
+rsync -av --delete "$source_dir/.hammerspoon/" "$dest_dir/.hammerspoon/"
+
 echo "Settings are synced from $source_dir to $dest_dir successfully."

@@ -9,3 +9,7 @@ My dot files under `~/`.
   - Reference: [https://github.com/mathiasbynens/dotfiles/blob/main/.gitconfig]
 - .ghostty-config: config for [Ghostty](https://github.com/ghostty/ghostty)
 - .alacritty.yml: config for [Alacritty](https://github.com/alacritty/alacritty)
+
+## Scripts
+
+Use the scripts under `auto/` to sync the configuration files from and to your local development env.
