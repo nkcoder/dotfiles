@@ -10,10 +10,10 @@ rsync -av --delete "$source_dir/.config/alacritty/" "$dest_dir/.config/alacritty
 rsync -av --delete "$source_dir/.config/nvim/" "$dest_dir/.config/nvim"
 
 # opencode
-rsync -av --delete "$source_dir/.config/opencode/*.json" "$dest_dir/.config/opencode"
+rsync -av --delete "$source_dir"/.config/opencode/*.json "$dest_dir/.config/opencode"
 
 # zed
-rsync -av --delete "$source_dir/.config/zed/*.json" "$dest_dir/.config/zed"
+rsync -av --delete "$source_dir"/.config/zed/*.json "$dest_dir/.config/zed"
 
 # lazygit
 rsync -av --delete "$source_dir/.config/lazygit/" "$dest_dir/.config/lazygit"
