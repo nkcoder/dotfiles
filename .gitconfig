@@ -1,6 +1,6 @@
 [user]
-    name = daniel.guo
-    email = daniel.guo@mydomain.com
+    name = Daniel
+    email = daniel.guo@vivalabs.com.au
 
 [alias]
     co = checkout
@@ -10,8 +10,7 @@
 
     ci = commit
 
-    # View the current working tree status using the short format
-    st = status -s
+    st = status
 
     # Pull with rebase
     pr = pull -r

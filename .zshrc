@@ -109,7 +109,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home
-export PATH=/opt/homebrew/bin:/Users/ling/.npm-global/bin:$PATH
+export PATH=/opt/homebrew/bin:/Users/ling/.npm-global/bin:/Users/ling/go/bin:/Users/ling/projects/kafka-space/kafka_2.13-4.0.0/bin:$PATH
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -121,25 +121,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # scala 3
 export PATH="$PATH:/Users/ling/Library/Application Support/Coursier/bin"
-
-# need for local dev (run module)
-export PYTHONPATH="${PYTHONPATH}:/Users/ling/projects/scripts/aws-helper"
-
-changeAwsProfileToDev() {
-    export AWS_PROFILE="dev"
-    echo "AWS default profile changed to 'dev'"
-}
-
-changeAwsProfileToProd() {
-    export AWS_PROFILE="prod"
-    echo "AWS default profile changed to 'prod'"
-}
-
-
-changeAwsProfileToDaniel() {
-    export AWS_PROFILE="daniel1"
-    echo "AWS default profile changed to 'daniel'"
-}
 
 # >>> scala-cli completions >>>
 fpath=("/Users/ling/Library/Application Support/ScalaCli/completions/zsh" $fpath)
@@ -169,6 +150,21 @@ tf() {
     terraform "$@"
 }
 
+# Always use thin vertical beam at shell prompt 
+precmd() {
+  echo -ne "\e[6 q"
+}
+
+# Alias
 alias pm="pulumi"
 alias kc="kubectl"
 alias mk="minikube"
+alias python='python3'
+alias lzg='lazygit'
+alias vim='nvim'
+alias v="nvim"
+
+# NeoVim (LazyVim), AI
+[ -f ~/.zshrc.secrets ] && source ~/.zshrc.secrets
+
+export EDITOR=nvim

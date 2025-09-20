@@ -1,37 +1,9 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Maintainer:
-"       Amir Salihefendic - @amix3k
-"
-" Awesome_version:
-"       Get this config, nice color schemes and lots of plugins!
-"
-"       Install the awesome version from:
-"
-"           https://github.com/amix/vimrc
-"
-" Sections:
-"    -> General
-"    -> VIM user interface
-"    -> Colors and Fonts
-"    -> Files and backups
-"    -> Text, tab and indent related
-"    -> Visual mode related
-"    -> Moving around, tabs and buffers
-"    -> Status line
-"    -> Editing mappings
-"    -> vimgrep searching and cope displaying
-"    -> Spell checking
-"    -> Misc
-"    -> Helper functions
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
 set history=500
+set number
 
 " Enable filetype plugins
 filetype plugin on
@@ -137,24 +109,84 @@ syntax enable
 " Set regular expression engine automatically
 set regexpengine=0
 
+" Enable true color support
+if has('termguicolors')
+    set termguicolors
+endif
+
 " Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-try
-    colorscheme desert
-catch
-endtry
+" Better color scheme options (try multiple schemes)
+let g:colorscheme_list = ['gruvbox', 'molokai', 'solarized', 'onedark', 'desert']
+for scheme in g:colorscheme_list
+    try
+        execute 'colorscheme ' . scheme
+        break
+    catch
+        continue
+    endtry
+endfor
 
 set background=dark
 
-" Set extra options when running in GUI mode
+" Font settings for GUI mode
 if has("gui_running")
+    " Remove toolbar and menu bar for cleaner look
     set guioptions-=T
+    set guioptions-=m
     set guioptions-=e
     set t_Co=256
     set guitablabel=%M\ %t
+    
+    " Font configuration for different OS
+    if has("gui_macvim")
+        " macOS fonts - try modern programming fonts first
+        set guifont=SF\ Mono:h14,Menlo:h14,Monaco:h14
+        " Alternative modern fonts (uncomment if you have them installed):
+        " set guifont=JetBrains\ Mono:h14
+        " set guifont=Fira\ Code:h14
+        " set guifont=Source\ Code\ Pro:h14
+        " set guifont=Hack:h14
+        
+        " Better line spacing
+        set linespace=2
+        
+        " Disable blinking cursor
+        set guicursor=a:blinkon0
+        
+    elseif has("gui_gtk2") || has("gui_gtk3")
+        " Linux GTK fonts
+        set guifont=JetBrains\ Mono\ 12,Hack\ 12,DejaVu\ Sans\ Mono\ 12,Monospace\ 12
+        
+    elseif has("gui_win32")
+        " Windows fonts
+        set guifont=JetBrains_Mono:h12:cANSI,Consolas:h12:cANSI,Courier_New:h12:cANSI
+    endif
+    
+    " Better window size
+    set lines=40
+    set columns=120
+endif
+
+" Terminal font rendering improvements
+if !has("gui_running")
+    " Better cursor shapes for different modes
+    if exists('$TMUX')
+        let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+        let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+    else
+        let &t_SI = "\<Esc>]50;CursorShape=1\x7"  " Vertical bar in insert mode
+        let &t_EI = "\<Esc>]50;CursorShape=0\x7"  " Block in normal mode
+    endif
+    
+    " Better terminal integration
+    if $TERM_PROGRAM =~ "iTerm"
+        let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+        let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    endif
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -162,6 +194,18 @@ set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
+
+" Font rendering improvements
+set antialias                   " Enable antialiasing (GUI only)
+
+" Better display for special characters
+set listchars=tab:▸\ ,trail:·,extends:❯,precedes:❮,nbsp:×
+set showbreak=↪\ 
+
+" Improve font display for non-ASCII characters
+if has('multi_byte')
+    set fillchars=vert:│,fold:─
+endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -171,6 +215,17 @@ set ffs=unix,dos,mac
 set nobackup
 set nowb
 set noswapfile
+
+" Enable persistent undo
+if has('persistent_undo')
+    set undofile
+    set undodir=~/.vim/undodir
+    if !isdirectory(&undodir)
+        call mkdir(&undodir, 'p')
+    endif
+endif
+set undolevels=1000
+set undoreload=10000
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -385,8 +440,22 @@ function! VisualSelection(direction, extra_filter) range
     let @" = l:saved_reg
 endfunction
 
-" vertical bar in Insertio mode, Box bar in normal mode
-if $TERM_PROGRAM =~ "iTerm"
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+
+
+" Better search behavior
+set gdefault                    " Global replace by default
+set shortmess+=c               " Don't show completion messages
+set signcolumn=yes             " Always show sign column
+
+" Better wildmenu
+set wildmode=longest:full,full
+set wildoptions=pum            " Popup menu for wildmenu
+
+" System clipboard integration
+if has('clipboard')
+    if has('unnamedplus')
+        set clipboard=unnamed,unnamedplus
+    else
+        set clipboard=unnamed
+    endif
 endif
