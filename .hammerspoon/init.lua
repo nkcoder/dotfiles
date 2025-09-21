@@ -35,9 +35,9 @@ bindKey({ "alt" }, "r", "Safari")
 bindKey({ "alt" }, "s", "/Users/ling/Applications/Slack.app")
 
 -- bind on letter keys
--- bindKey({ "alt" }, "t", "/Users/ling/Applications/Ghostty.app")
+bindKey({ "alt" }, "t", "/Users/ling/Applications/Ghostty.app")
 -- bindKey({ "alt" }, "t", "/Users/ling/Applications/iTerm.app")
-bindKey({ "alt" }, "t", "/Users/ling/Applications/Alacritty.app")
+-- bindKey({ "alt" }, "t", "/Users/ling/Applications/Alacritty.app")
 
 -- Bind Option + V to open Visual Studio Code
 bindKey({ "alt" }, "v", "/Users/ling/Applications/Visual Studio Code.app")
@@ -47,7 +47,8 @@ bindKey({ "alt" }, "z", "/Users/ling/Applications/Zed.app")
 --- bind on number keys
 bindKey({ "alt" }, "1", "/Users/ling/Applications/Claude.app")
 bindKey({ "alt" }, "2", "/Users/ling/Applications/ChatGPT.app")
-bindKey({ "alt" }, "3", "/Users/ling/Applications/Ghostty.app")
+bindKey({ "alt" }, "3", "/Users/ling/Applications/iTerm.app")
+bindKey({ "alt" }, "4", "/Users/ling/Applications/Alacritty.app")
 
 -- reload config
 hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "R", function()

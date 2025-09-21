@@ -1,6 +1,8 @@
 return {
+  -- tokyonight
   {
     "folke/tokyonight.nvim",
+    name = "tokyonight",
     priority = 1000,
   },
 
@@ -8,15 +10,15 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 100,
+    priority = 1000,
   },
 
   -- Configure LazyVim to load your colorscheme
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight",
-      -- colorscheme = "catppuccin",
+      -- colorscheme = "tokyonight",
+      colorscheme = "catppuccin",
     },
   },
 }

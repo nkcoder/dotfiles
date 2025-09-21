@@ -57,22 +57,22 @@ glyph_offset = { x = 0, y = 0 }
 
 # Normal (roman) font face
 [font.normal]
-family = "SauceCodePro Nerd Font"
+family = "Monaco Nerd Font"
 style = "Regular"
 
 # Bold font face
 [font.bold]
-family = "SauceCodePro Nerd Font"
+family = "Monaco Nerd Font"
 style = "Bold"
 
 # Italic font face
 [font.italic]
-family = "SauceCodePro Nerd Font"
+family = "Monaco Nerd Font"
 style = "Italic"
 
 # Bold italic font face
 [font.bold_italic]
-family = "SauceCodePro Nerd Font"
+family = "Monaco Nerd Font"
 style = "Bold Italic"
 
 # Bold text rendering is now handled automatically by Alacritty
