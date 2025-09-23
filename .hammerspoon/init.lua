@@ -7,9 +7,6 @@ end
 
 bindKey({ "alt" }, "a", "Finder")
 
-
-bindKey({ "alt" }, "b", "Preview")
-
 -- Bind Option + C to open Google Chrome
 bindKey({ "alt" }, "c", "Google Chrome")
 
@@ -45,6 +42,7 @@ bindKey({ "alt" }, "v", "/Users/ling/Applications/Visual Studio Code.app")
 bindKey({ "alt" }, "z", "/Users/ling/Applications/Zed.app")
 
 --- bind on number keys
+bindKey({ "alt" }, "0", "Preview")
 bindKey({ "alt" }, "1", "/Users/ling/Applications/Claude.app")
 bindKey({ "alt" }, "2", "/Users/ling/Applications/ChatGPT.app")
 bindKey({ "alt" }, "3", "/Users/ling/Applications/iTerm.app")

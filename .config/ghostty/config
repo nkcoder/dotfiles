@@ -1,0 +1,6 @@
+copy-on-select = clipboard
+keybind = shift+enter=text:\n
+font-family = "MesloLGS Nerd Font"
+font-size = 14
+font-feature = liga off
+font-feature = calt off

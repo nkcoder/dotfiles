@@ -18,6 +18,9 @@ rsync -av --delete "$source_dir"/.config/zed/*.json "$dest_dir/.config/zed"
 # lazygit
 rsync -av --delete "$source_dir/.config/lazygit/" "$dest_dir/.config/lazygit"
 
+# ghostty
+rsync -av --delete "${source_dir}/.config/ghostty/" "$dest_dir/.config/ghostty/"
+
 # .zshrc
 rsync -a --delete "$source_dir/.zshrc" "$dest_dir/.zshrc"
 
