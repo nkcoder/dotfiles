@@ -114,10 +114,6 @@ export PATH=/opt/homebrew/bin:/Users/ling/.npm-global/bin:/Users/ling/go/bin:/Us
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # scala 3
 export PATH="$PATH:/Users/ling/Library/Application Support/Coursier/bin"
@@ -163,6 +159,11 @@ alias python='python3'
 alias lzg='lazygit'
 alias vim='nvim'
 alias v="nvim"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # NeoVim (LazyVim), AI
 [ -f ~/.zshrc.secrets ] && source ~/.zshrc.secrets

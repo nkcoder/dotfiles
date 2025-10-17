@@ -1,6 +1,7 @@
 {
   "extras": [
-
+    "lazyvim.plugins.extras.editor.refactoring",
+    "lazyvim.plugins.extras.lang.scala"
   ],
   "install_version": 8,
   "news": {
