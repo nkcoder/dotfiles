@@ -45,8 +45,8 @@ bindKey({ "alt" }, "z", "/Users/ling/Applications/Zed.app")
 bindKey({ "alt" }, "0", "Preview")
 bindKey({ "alt" }, "1", "/Users/ling/Applications/Claude.app")
 bindKey({ "alt" }, "2", "/Users/ling/Applications/ChatGPT.app")
-bindKey({ "alt" }, "4", "/Users/ling/Applications/Ghostty.app")
-bindKey({ "alt" }, "3", "/Users/ling/Applications/iTerm.app")
+bindKey({ "alt" }, "3", "/Users/ling/Applications/Ghostty.app")
+bindKey({ "alt" }, "4", "/Users/ling/Applications/iTerm.app")
 
 -- reload config
 hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "R", function()
