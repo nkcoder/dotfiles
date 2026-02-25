@@ -1,0 +1,27 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "alt-f12": "terminal_panel::ToggleFocus",
+      "cmd-shift-i": "workspace::ToggleRightDock",
+      "alt-f12": "workspace::ToggleBottomDock",
+      "cmd-3": "git_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "alt-f12": "workspace::ToggleBottomDock",
+      "cmd-shift-i": "workspace::ToggleRightDock",
+      "cmd-shift-g": "git_panel::ToggleFocus",
+      "cmd-3": "git_panel::ToggleFocus"
+    }
+  }
+]

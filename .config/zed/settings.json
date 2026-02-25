@@ -1,0 +1,96 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "icon_theme": "VSCode Icons (Dark)",
+  "ssh_connections": [
+    {
+      "host": "github.com",
+      "projects": []
+    }
+  ],
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-thinking"
+    },
+    "play_sound_when_agent_done": true,
+    "default_profile": "write",
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
+    }
+  },
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "show_completions_on_input": true,
+  "buffer_font_family": "Monaco",
+  "buffer_font_fallbacks": ["JetBrains Mono", "Hack Nerd Font Mono"],
+  "vim_mode": true,
+  "format_on_save": "off",
+  "ui_font_size": 13,
+  "buffer_font_size": 13,
+  "theme": "Gruvbox Dark",
+  "autosave": "on_window_change",
+  "base_keymap": "JetBrains",
+  "confirm_quit": false,
+  "languages": {
+    "Python": {
+      "show_edit_predictions": false,
+      "language_servers": ["pyright"],
+      "format_on_save": "on",
+      "formatter": [
+        {
+          "code_actions": {
+            "source.organizeImports.ruff": true,
+            "source.fixAll.ruff": true
+          }
+        },
+        {
+          "language_server": {
+            "name": "pyright"
+          }
+        }
+      ]
+    },
+    "Go": {
+      "show_completions_on_input": false
+    }
+  },
+  "lsp": {
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          "lint": {
+            "extendSelect": ["I"]
+          }
+        }
+      }
+    },
+    "pyright": {
+      "settings": {
+        "python.analysis": {
+          "diagnosticMode": "workspace",
+          "typeCheckingMode": "strict"
+        },
+        "python": {
+          "pythonPath": ".venv/bin/python"
+        }
+      }
+    }
+  },
+  "terminal": {
+    "font_family": "Monaco",
+    "font_fallbacks": ["MesloLGS NF"],
+    "font_size": 13,
+    "copy_on_select": true,
+    "blinking": "on",
+    "cursor_shape": "bar"
+  }
+}

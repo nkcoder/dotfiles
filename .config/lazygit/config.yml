@@ -1,0 +1,10 @@
+gui:
+  showFileTree: true
+  showRandomTip: true
+  showCommandLog: false
+  showBottomLine: true
+git:
+  pagers:
+    - pager: delta --dark --paging=never --line-numbers
+  showUntrackedFiles: true
+  showIgnoredFiles: true

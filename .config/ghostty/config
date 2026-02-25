@@ -1,0 +1,6 @@
+copy-on-select = clipboard
+keybind = shift+enter=text:\n
+font-family = "JetBrainsMono Nerd Font"
+font-size = 13
+font-feature = liga off
+font-feature = calt off
