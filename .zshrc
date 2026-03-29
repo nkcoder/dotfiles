@@ -28,12 +28,6 @@ plugins=(git zsh-autosuggestions autojump zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -47,7 +41,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home
-export PATH=/opt/homebrew/bin:/Users/ling/.npm-global/bin:/Users/ling/go/bin:/Users/ling/projects/kafka-space/kafka_2.13-4.0.0/bin:$PATH
 export PATH="$HOME/.cargo:/opt/homebrew/bin:$HOME/.npm-global/bin:$HOME/go/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
