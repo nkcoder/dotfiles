@@ -7,13 +7,24 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "assistant": {
-    "default_profile": "ask",
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4.1"
+  "icon_theme": "VSCode Icons (Dark)",
+  "ssh_connections": [
+    {
+      "host": "github.com",
+      "projects": []
+    }
+  ],
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4-thinking"
     },
-    "version": "2"
+    "play_sound_when_agent_done": true,
+    "default_profile": "write",
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
+    }
   },
   "features": {
     "edit_prediction_provider": "zed"
@@ -22,9 +33,10 @@
   "buffer_font_family": "Monaco",
   "buffer_font_fallbacks": ["JetBrains Mono", "Hack Nerd Font Mono"],
   "vim_mode": true,
-  "ui_font_size": 14,
-  "buffer_font_size": 14,
-  "theme": "Github Light",
+  "format_on_save": "off",
+  "ui_font_size": 13,
+  "buffer_font_size": 13,
+  "theme": "Gruvbox Dark",
   "autosave": "on_window_change",
   "base_keymap": "JetBrains",
   "confirm_quit": false,
@@ -38,6 +50,7 @@
           "code_actions": {
             "source.organizeImports.ruff": true,
             "source.fixAll.ruff": true
+          }
         },
         {
           "language_server": {
@@ -45,13 +58,15 @@
           }
         }
       ]
+    },
+    "Go": {
+      "show_completions_on_input": false
     }
   },
   "lsp": {
     "ruff": {
       "initialization_options": {
         "settings": {
-          "lineLength": 120,
           "lint": {
             "extendSelect": ["I"]
           }
@@ -71,9 +86,11 @@
     }
   },
   "terminal": {
-    "font_family": "MesloLGS NF",
+    "font_family": "Monaco",
+    "font_fallbacks": ["MesloLGS NF"],
     "font_size": 13,
     "copy_on_select": true,
-    "blinking": "on"
+    "blinking": "on",
+    "cursor_shape": "bar"
   }
 }

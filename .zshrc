@@ -1,3 +1,4 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -40,8 +41,6 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 
-
-
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
@@ -49,18 +48,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-25.jdk/Contents/Home
 export PATH=/opt/homebrew/bin:/Users/ling/.npm-global/bin:/Users/ling/go/bin:/Users/ling/projects/kafka-space/kafka_2.13-4.0.0/bin:$PATH
+export PATH="$HOME/.cargo:/opt/homebrew/bin:$HOME/.npm-global/bin:$HOME/go/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
-# scala 3
-export PATH="$PATH:/Users/ling/Library/Application Support/Coursier/bin"
-
-# >>> scala-cli completions >>>
-fpath=("/Users/ling/Library/Application Support/ScalaCli/completions/zsh" $fpath)
-# Make sure compinit is called after instant prompt and only once
-# <<< scala-cli completions <<<
 
 # Add Homebrew completions path if it exists
 if [ -d /opt/homebrew/share/zsh/site-functions ]; then
@@ -108,3 +99,15 @@ export NVM_DIR="$HOME/.nvm"
 [ -f ~/.zshrc.secrets ] && source ~/.zshrc.secrets
 
 export EDITOR=nvim
+
+# Added by Antigravity
+export PATH="/Users/jasmine/.antigravity/antigravity/bin:$PATH"
+
+# bun completions
+[ -s "/Users/jasmine/.bun/_bun" ] && source "/Users/jasmine/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+. "$HOME/.local/bin/env"

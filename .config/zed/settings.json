@@ -7,7 +7,14 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "icon_theme": "VSCode Icons (Dark)",
+  "completions": {
+    "lsp_fetch_timeout_ms": 100
+  },
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "edit_predictions": {
+    "provider": "zed"
+  },
+  "icon_theme": "Catppuccin Mocha",
   "ssh_connections": [
     {
       "host": "github.com",
@@ -26,12 +33,9 @@
       "model": "claude-sonnet-4"
     }
   },
-  "features": {
-    "edit_prediction_provider": "zed"
-  },
-  "show_completions_on_input": true,
-  "buffer_font_family": "Monaco",
-  "buffer_font_fallbacks": ["JetBrains Mono", "Hack Nerd Font Mono"],
+  "show_completions_on_input": false,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_fallbacks": ["JetBrainsMono", "Hack Nerd Font Mono"],
   "vim_mode": true,
   "format_on_save": "off",
   "ui_font_size": 13,
@@ -41,16 +45,25 @@
   "base_keymap": "JetBrains",
   "confirm_quit": false,
   "languages": {
+    "Rust": {
+      "inlay_hints": {
+        "enabled": true
+      },
+      "show_completion_documentation": false,
+      "format_on_save": "on",
+      "preferred_line_length": 120,
+      "soft_wrap": "preferred_line_length"
+    },
     "Python": {
       "show_edit_predictions": false,
       "language_servers": ["pyright"],
       "format_on_save": "on",
       "formatter": [
         {
-          "code_actions": {
-            "source.organizeImports.ruff": true,
-            "source.fixAll.ruff": true
-          }
+          "code_action": "source.organizeImports.ruff"
+        },
+        {
+          "code_action": "source.fixAll.ruff"
         },
         {
           "language_server": {
@@ -73,21 +86,10 @@
         }
       }
     },
-    "pyright": {
-      "settings": {
-        "python.analysis": {
-          "diagnosticMode": "workspace",
-          "typeCheckingMode": "strict"
-        },
-        "python": {
-          "pythonPath": ".venv/bin/python"
-        }
-      }
-    }
   },
   "terminal": {
     "font_family": "Monaco",
-    "font_fallbacks": ["MesloLGS NF"],
+    "font_fallbacks": ["JetBrainsMono Nerd Font"],
     "font_size": 13,
     "copy_on_select": true,
     "blinking": "on",

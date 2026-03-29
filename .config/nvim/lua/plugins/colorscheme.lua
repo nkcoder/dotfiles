@@ -1,31 +1,29 @@
+-- List of your favorite themes
+local themes = {
+  "catppuccin",
+  "tokyonight",
+  "kanagawa",
+  "gruvbox",
+  "nightfox",
+}
+
+-- Seed the random generator
+math.randomseed(os.time())
+local picked_theme = themes[math.random(#themes)]
+
 return {
-  -- tokyonight
-  {
-    "folke/tokyonight.nvim",
-    name = "tokyonight",
-    priority = 1000,
-  },
+  -- 1. Install all the theme plugins
+  { "catppuccin/nvim", name = "catppuccin" },
+  { "folke/tokyonight.nvim" },
+  { "rebelot/kanagawa.nvim" },
+  { "ellisonleao/gruvbox.nvim" },
+  { "EdenEast/nightfox.nvim" },
 
-  -- catppuccin
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    opts = {
-      flavour = "auto", -- latte, frappe, macchiato, mocha
-    },
-  },
-
-  { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, name = "gruvbox" },
-
-  -- Configure LazyVim to load your colorscheme
+  -- 2. Tell LazyVim which one we picked for this session
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "github_dark",
-      -- colorscheme = "tokyonight",
-      -- colorscheme = "gruvbox",
-      colorscheme = "catppuccin",
+      colorscheme = picked_theme,
     },
   },
 }
