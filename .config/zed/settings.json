@@ -7,10 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "ui_font_weight": 400.0,
   "completions": {
     "lsp_fetch_timeout_ms": 100
   },
-  "ui_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_family": "Monaco Nerd Font",
   "edit_predictions": {
     "provider": "zed"
   },
@@ -34,7 +35,7 @@
     }
   },
   "show_completions_on_input": false,
-  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_family": "Monaco Nerd Font",
   "buffer_font_fallbacks": ["JetBrainsMono", "Hack Nerd Font Mono"],
   "vim_mode": true,
   "format_on_save": "off",
@@ -73,7 +74,7 @@
       ]
     },
     "Go": {
-      "show_completions_on_input": false
+      "show_completions_on_input": true
     }
   },
   "lsp": {

@@ -9,7 +9,12 @@ local themes = {
 
 -- Seed the random generator
 math.randomseed(os.time())
-local picked_theme = themes[math.random(#themes)]
+local picked_theme
+if math.random() > 0.5 then
+  picked_theme = "kanagawa"
+else
+  picked_theme = themes[math.random(#themes)]
+end
 
 return {
   -- 1. Install all the theme plugins
